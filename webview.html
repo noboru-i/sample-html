@@ -1,7 +1,37 @@
 <html>
+<head>
+  <script>
+    var NativeBridge = {
+      send: function(methodName, args) {
+        if (this.isIOS()) {
+            window.webkit.messageHandlers[methodName].postMessage(args);
+        } else if (this.isAndroid()) {
+            MyApp[methodName](args);
+        }
+      },
+      isIOS: function() {
+        var ua = window.navigator.userAgent.toLowerCase();
+        if (ua.indexOf('iphone') !== -1
+            || ua.indexOf('ipod') !== -1
+            || ua.indexOf('ipad') !== -1) {
+          return true;
+        }
+        return false;
+      },
+      isAndroid: function() {
+        var ua = window.navigator.userAgent.toLowerCase();
+        if (ua.indexOf('android') !== -1) {
+            return true;
+        }
+      }
+    };
+  </script>
+</head>
 <body>
   <span onclick="MyApp.sendMessage('test message.')">Android タップイベント通知</span>
   <br><br>
   <span onclick="window.webkit.messageHandlers.sendMessage.postMessage('test message.')">iOS タップイベント通知</span>
+  <br><br>
+  <span onclick="NativeBridge.send('sendMessage', 'test message.')">UA判定 タップイベント通知</span>
 </body>
 </html>
