@@ -1,5 +1,7 @@
 <html>
 <body>
-<span onclick="MyApp.sendEvent('test message.')">タップイベント通知</span>
+  <span onclick="MyApp.sendMessage('test message.')">Android タップイベント通知</span>
+  <br><br>
+  <span onclick="window.webkit.messageHandlers.sendMessage.postMessage('test message.')">iOS タップイベント通知</span>
 </body>
 </html>
