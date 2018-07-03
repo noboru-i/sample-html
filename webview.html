@@ -26,9 +26,14 @@
         }
       }
     };
+    window.onload = function() {
+      document.getElementById('ua').innerText = window.navigator.userAgent;
+    };
   </script>
 </head>
 <body>
+  UA: <span id="ua"></span>
+  <br><br>
   <span onclick="MyApp.sendMessage('test message.')">Android タップイベント通知</span>
   <br><br>
   <span onclick="window.webkit.messageHandlers.sendMessage.postMessage('test message.')">iOS タップイベント通知</span>
