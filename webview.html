@@ -13,17 +13,10 @@
         }
       },
       isIOS: function() {
-        var ua = window.navigator.userAgent.toLowerCase();
-        if (ua.indexOf('Sample-iOS-App') !== -1) {
-          return true;
-        }
-        return false;
+        return window.navigator.userAgent.indexOf('Sample-iOS-App') !== -1;
       },
       isAndroid: function() {
-        var ua = window.navigator.userAgent.toLowerCase();
-        if (ua.indexOf('Sample-Android-App') !== -1) {
-            return true;
-        }
+        return window.navigator.userAgent.indexOf('Sample-Android-App') !== -1;
       }
     };
     window.onload = function() {
