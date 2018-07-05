@@ -8,20 +8,20 @@
             window.webkit.messageHandlers[methodName].postMessage(args);
         } else if (this.isAndroid()) {
             MyApp[methodName](args);
+        } else {
+            console.log('browser access.');
         }
       },
       isIOS: function() {
         var ua = window.navigator.userAgent.toLowerCase();
-        if (ua.indexOf('iphone') !== -1
-            || ua.indexOf('ipod') !== -1
-            || ua.indexOf('ipad') !== -1) {
+        if (ua.indexOf('Sample-iOS-App') !== -1) {
           return true;
         }
         return false;
       },
       isAndroid: function() {
         var ua = window.navigator.userAgent.toLowerCase();
-        if (ua.indexOf('android') !== -1) {
+        if (ua.indexOf('Sample-Android-App') !== -1) {
             return true;
         }
       }
