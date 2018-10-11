@@ -3,11 +3,14 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <script>
     window.onload = function() {
-      document.getElementById('list').innerText = document.cookie;
+      printCookie();
     };
     function addCookie() {
       document.cookie = 'web_cookie=123;max-age=3600;path=/';
       window.location.href = "sample://update_cookie";
+    }
+    function printCookie() {
+      document.getElementById('list').innerText = document.cookie;
     }
   </script>
 </head>
