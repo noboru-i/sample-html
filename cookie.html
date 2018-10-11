@@ -6,7 +6,7 @@
       document.getElementById('list').innerText = document.cookie;
     };
     function addCookie() {
-      document.cookie = 'web_cookie=123;max-age=3600';
+      document.cookie = 'web_cookie=123;max-age=3600;path=/';
       window.location.href = "sample://update_cookie";
     }
   </script>
