@@ -5,11 +5,19 @@
     window.onload = function() {
       document.getElementById('list').innerText = document.cookie;
     };
+    function addCookie() {
+      document.cookie = 'web_cookie=123;max-age=3600';
+      window.location.href = "sample://update_cookie";
+    }
   </script>
 </head>
 <body>
   <div>
     <a href="javascript:window.history.back()">戻る</a>
+  </div>
+  <br><br>
+  <div>
+    <a href="javascript:addCookie()">Cookie追加</a>
   </div>
   <br><br>
   <div>
